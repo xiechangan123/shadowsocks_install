@@ -13,4 +13,4 @@ shadowsocks-libev-debian.sh
 - https://www.xlovett.com/1288.html
 
 
-Copyright (C) 2014-2021 Teddysun
+Copyright (C) 2014-2021 Xlovett
