@@ -15,8 +15,8 @@ cur_dir=$(pwd)
 libsodium_file='libsodium-1.0.18'
 libsodium_url='https://github.com/jedisct1/libsodium/releases/download/1.0.18-RELEASE/libsodium-1.0.18.tar.gz'
 
-mbedtls_file='mbedtls-2.16.12'
-mbedtls_url='https://github.com/Mbed-TLS/mbedtls/archive/refs/tags/v2.16.12.tar.gz'
+mbedtls_file='mbedtls-2.28.1'
+mbedtls_url='https://github.com/Mbed-TLS/mbedtls/archive/refs/tags/v2.28.1.tar.gz'
 
 # Stream Ciphers
 ciphers=(
@@ -397,7 +397,7 @@ config_shadowsocks(){
     "user":"nobody",
     "method":"${shadowsockscipher}",
     "fast_open":false,
-    "nameserver":"1.0.0.1",
+    "nameserver":"1.1.1.1",
     "mode":"tcp_and_udp"
 }
 EOF
