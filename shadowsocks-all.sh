@@ -40,8 +40,8 @@ software=(Shadowsocks-Python ShadowsocksR Shadowsocks-Go Shadowsocks-libev)
 libsodium_file='libsodium-1.0.18'
 libsodium_url='https://github.com/jedisct1/libsodium/releases/download/1.0.18-RELEASE/libsodium-1.0.18.tar.gz'
 
-mbedtls_file='mbedtls-2.16.12'
-mbedtls_url='https://github.com/Mbed-TLS/mbedtls/archive/refs/tags/v2.16.12.tar.gz'
+mbedtls_file='mbedtls-2.28.1'
+mbedtls_url='https://github.com/Mbed-TLS/mbedtls/archive/refs/tags/v2.28.1.tar.gz'
 
 shadowsocks_python_file='shadowsocks-master'
 shadowsocks_python_url='https://github.com/shadowsocks/shadowsocks/archive/master.zip'
@@ -524,7 +524,7 @@ elif [ "${selected}" == '4' ]; then
     "user":"nobody",
     "method":"${shadowsockscipher}",
     "fast_open":false,
-    "nameserver":"1.0.0.1",
+    "nameserver":"1.1.1.1",
     "mode":"tcp_and_udp",
     "plugin":"obfs-server",
     "plugin_opts":"obfs=${shadowsocklibev_obfs}"
@@ -540,7 +540,7 @@ EOF
     "user":"nobody",
     "method":"${shadowsockscipher}",
     "fast_open":false,
-    "nameserver":"1.0.0.1",
+    "nameserver":"1.1.1.1",
     "mode":"tcp_and_udp"
 }
 EOF
