@@ -1,44 +1,41 @@
-![Shadowsocks](https://github.com/teddysun/shadowsocks_install/raw/master/shadowsocks.png)
-# Auto install Shadowsocks Server
+一、Debian下shadowsocks-libev一键安装脚本
 
-shadowsocks.sh
-===============
-- Auto Install Shadowsocks(Python) Server for CentOS/Debian/Ubuntu
-- https://teddysun.com/342.html
+wget --no-check-certificate https://raw.githubusercontent.com/xiechangan123/shadowsocks_install/master/shadowsocks-libev-debian.sh
 
-shadowsocks-libev.sh
-===============
-- Auto Install Shadowsocks(libev) Server for CentOS
-- https://teddysun.com/357.html
+chmod +x shadowsocks-libev-debian.sh
 
-shadowsocks-libev-debian.sh
-===============
-- Auto Install Shadowsocks(libev) Server for Debian/Ubuntu
-- https://teddysun.com/358.html
+./shadowsocks-libev-debian.sh 2>&1 | tee shadowsocks-libev-debian.log
 
-shadowsocks-go.sh
-===============
-- Auto Install Shadowsocks(Go) Server for CentOS/Debian/Ubuntu
-- https://teddysun.com/392.html
+二、快速开启Google BBR的方法
 
-shadowsocks-crond.sh
-===============
-- Check Shadowsocks(All version) Server is running or not, and start it if not running
-- https://teddysun.com/525.html
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 
-shadowsocksR.sh
-===============
-- Auto Install ShadowsocksR Server for CentOS/Debian/Ubuntu
-- https://shadowsocks.be/9.html
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 
-shadowsocks-all.sh
-==================
-- Auto Install Shadowsocks Server (all version) for CentOS/Debian/Ubuntu
-- https://teddysun.com/486.html
+sysctl -p
 
-haproxy.sh
-===============
-- Auto Install haproxy for Shadowsocks Server
-- https://shadowsocks.be/10.html
+状态检查：
 
-Copyright (C) 2014-2019 Teddysun
+sysctl net.ipv4.tcp_congestion_control
+
+三、使用 root 用户登录，运行以下命令：
+
+./shadowsocks-libev.sh uninstall
+
+Debian/Ubuntu 系统卸载应该是
+
+./shadowsocks-libev-debian.sh uninstall
+
+安装完成后即已后台启动 Shadowsocks-libev ，运行：
+
+/etc/init.d/shadowsocks status 可以查看进程是否启动。
+
+本脚本安装完成后，会将 Shadowsocks-libev 加入开机自启动。
+
+四、【全自动】Debian/Ubuntu/CentOS 网络重装一键脚本
+
+wget --no-check-certificate -O AutoReinstall.sh https://git.io/AutoReinstall.sh && bash AutoReinstall.sh
+
+密码：Pwd@Linux
+
+Copyright (C) 2014-2022 Xlovett
