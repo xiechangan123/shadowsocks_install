@@ -38,4 +38,14 @@ wget --no-check-certificate -O AutoReinstall.sh https://git.io/AutoReinstall.sh 
 
 密码：Pwd@Linux
 
+关闭IPV4+IPV6双栈VPS的IPV6（实测Centos 7/8永久关闭，debian9重启后可能会失效）
+编辑/etc/sysctl.conf，添加以下内容。
+
+net.ipv6.conf.all.disable_ipv6=1
+net.ipv6.conf.default.disable_ipv6=1
+net.ipv6.conf.lo.disable_ipv6=1
+net.ipv6.conf.eth0.disable_ipv6=1
+
+然后运行sysctl -p，测试curl ip.sb变成了ipv4。
+
 Copyright (C) 2014-2022 Xlovett
