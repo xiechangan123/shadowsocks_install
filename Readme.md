@@ -1,6 +1,6 @@
 一、Debian下shadowsocks-libev一键安装脚本
 
-wget --no-check-certificate https://raw.githubusercontent.com/xiechangan123/shadowsocks_install/master/shadowsocks-libev-debian.sh
+wget -P /root --no-check-certificate https://raw.githubusercontent.com/xiechangan123/shadowsocks_install/master/shadowsocks-libev-debian.sh
 
 chmod +x shadowsocks-libev-debian.sh
 
@@ -38,9 +38,9 @@ wget --no-check-certificate -O AutoReinstall.sh https://git.io/AutoReinstall.sh 
 
 密码：Pwd@Linux
 
-关闭IPV4+IPV6双栈VPS的IPV6（实测Centos 7/8永久关闭，debian9重启后可能会失效）
-编辑/etc/sysctl.conf，添加以下内容。
+五、关闭IPV4+IPV6双栈VPS的IPV6（实测Centos 7/8永久关闭，debian9重启后可能会失效）
 
+编辑/etc/sysctl.conf，添加以下内容。
 net.ipv6.conf.all.disable_ipv6=1
 net.ipv6.conf.default.disable_ipv6=1
 net.ipv6.conf.lo.disable_ipv6=1
