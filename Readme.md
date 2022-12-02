@@ -52,6 +52,10 @@ net.ipv6.conf.eth0.disable_ipv6=1
 
 使用winscp或其他方法将img镜像文件上传至路由器，例如/tmp/upload/路径下。
 
+确认img镜像文件已上传。
+
+root@OpenWrt:~# ls -l /tmp/upload
+
 以文件名为openwrt-x86-64-combined-squashfs.img为例。
 
 执行DD命令写入
