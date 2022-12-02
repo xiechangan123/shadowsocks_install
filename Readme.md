@@ -48,4 +48,19 @@ net.ipv6.conf.eth0.disable_ipv6=1
 
 然后运行sysctl -p，测试curl ip.sb变成了ipv4。
 
+六、通过DD命令刷新openwrt固件
+
+使用winscp或其他方法将img镜像文件上传至路由器，例如/tmp/upload/路径下。
+
+以文件名为openwrt-x86-64-combined-squashfs.img为例。
+
+执行DD命令写入
+　　dd if=/tmp/upload/openwrt-x86-64-combined-squashfs.img of=/dev/sda
+  
+会回显一个写入信息
+　　594944+0 records in
+　　594944+0 records out
+  
+执行reboot重启机器，固件即生效。
+
 Copyright (C) 2014-2022 Xlovett
