@@ -1,6 +1,6 @@
 一、Debian下shadowsocks-libev一键安装脚本
 
-wget --no-check-certificate https://raw.githubusercontent.com/xiechangan123/shadowsocks_install/master/shadowsocks-libev-debian.sh
+wget -P /root -N --no-check-certificate https://raw.githubusercontent.com/xiechangan123/shadowsocks_install/master/shadowsocks-libev-debian.sh
 
 chmod +x shadowsocks-libev-debian.sh
 
