@@ -67,4 +67,18 @@ root@OpenWrt:~# ls -l /tmp/upload
   
 执行reboot重启机器，固件即生效。
 
+七、Debian删除残余的配置文件
+remove将会删除软件包，但会保留配置文件．purge会将软件包以及配置文件都删除．
+找出系统上哪些软件包留下了残余的配置文件
+
+dpkg --list | grep "^rc"
+
+其中第一栏的rc表示软件包已经删除（Remove），但配置文件（Config-file）还在. 现在提取这些软件包的名称．
+
+dpkg --list | grep "^rc" | cut -d " " -f 3
+
+删除这些软件包
+
+dpkg --list | grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge
+
 Copyright (C) 2014-2022 Xlovett
