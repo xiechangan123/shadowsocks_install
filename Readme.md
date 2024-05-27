@@ -81,4 +81,11 @@ dpkg --list | grep "^rc" | cut -d " " -f 3
 
 dpkg --list | grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge
 
-Copyright (C) 2014-2022 Xlovett
+八、卸载旧内核
+请确保使用中的内核不要卸载
+
+dpkg --list | grep linux-image
+# 卸载指定的旧内核
+apt purge linux-image-*.**.*-**-cloud-amd64
+
+Copyright (C) 2014-2024 Xlovett
