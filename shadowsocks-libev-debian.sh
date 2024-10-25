@@ -13,10 +13,10 @@ export PATH
 cur_dir=$(pwd)
 
 libsodium_file='libsodium-stable'
-libsodium_url='https://github.com/jedisct1/libsodium/releases/download/1.0.19-RELEASE/libsodium-1.0.19.tar.gz'
+libsodium_url='https://github.com/jedisct1/libsodium/releases/download/1.0.20-RELEASE/libsodium-1.0.20.tar.gz'
 
-mbedtls_file='mbedtls-2.28.8'
-mbedtls_url='https://github.com/Mbed-TLS/mbedtls/archive/refs/tags/v2.28.8.tar.gz'
+mbedtls_file='mbedtls-2.28.9'
+mbedtls_url='https://github.com/Mbed-TLS/mbedtls/archive/refs/tags/v2.28.9.tar.gz'
 
 # Stream Ciphers
 ciphers=(
