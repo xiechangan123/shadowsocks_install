@@ -96,4 +96,46 @@ dpkg --list | grep linux-image
 # 卸载指定的旧内核
 apt purge linux-image-*.**.*-**-cloud-amd64
 
+安装Shadowsocks
+执行以下命令来安装Shadowsocks：
+
+apt install shadowsocks-libev
+
+配置Shadowsocks
+安装完成后，我们需要配置Shadowsocks以连接到我们的代理服务器。在终端中执行以下命令：
+
+nano /etc/shadowsocks-libev/config.json
+
+{
+
+"server":"your_server_ip",
+
+"server_port":your_server_port,
+
+"local_address": "127.0.0.1",
+
+"local_port":1080,
+
+"password":"your_password",
+
+"timeout":300,
+
+"method":"RC4-MD5"
+
+}
+
+完成配置后，保存文件并退出。
+
+启动Shadowsocks
+执行以下命令来启动Shadowsocks服务：
+
+systemctl start shadowsocks-libev
+
+如果一切顺利，Shadowsocks将会成功启动。
+
+设置自启动
+为了使Shadowsocks在系统启动时自动启动，我们需要执行以下命令：
+
+systemctl enable shadowsocks-libev
+
 Copyright (C) 2014-2024 Xlovett
