@@ -120,7 +120,7 @@ nano /etc/shadowsocks-libev/config.json
 
 "timeout":300,
 
-"method":"RC4-MD5"
+"method":"rc4-md5"
 
 }
 
