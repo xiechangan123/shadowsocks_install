@@ -107,21 +107,15 @@ apt install shadowsocks-libev
 nano /etc/shadowsocks-libev/config.json
 
 {
-
-"server":"your_server_ip",
-
-"server_port":your_server_port,
-
-"local_address": "127.0.0.1",
-
-"local_port":1080,
-
-"password":"your_password",
-
-"timeout":300,
-
-"method":"rc4-md5"
-
+"server":${server_value},
+    "server_port":${shadowsocksport},
+    "password":"${shadowsockspwd}",
+    "timeout":300,
+    "user":"nobody",
+    "method":"rc4-md5",
+    "fast_open":false,
+    "nameserver":"1.1.1.1",
+    "mode":"tcp_and_udp"
 }
 
 完成配置后，保存文件并退出。
