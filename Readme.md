@@ -13,7 +13,9 @@ echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 
 sysctl -p
+
 或者：
+
 echo "net.core.default_qdisc=fq_pie" >> /etc/sysctl.conf
 
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
