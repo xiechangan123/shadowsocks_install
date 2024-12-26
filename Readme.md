@@ -6,9 +6,15 @@ chmod +x shadowsocks-libev-debian.sh
 
 ./shadowsocks-libev-debian.sh 2>&1 | tee shadowsocks-libev-debian.log
 
-二、快速开启Google BBR的方法
+二、快速开启Google BBR/BBR3的方法
 
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+
+sysctl -p
+或者：
+echo "net.core.default_qdisc=fq_pie" >> /etc/sysctl.conf
 
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 
