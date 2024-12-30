@@ -94,7 +94,7 @@ dpkg --list | grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge
 
 dpkg --list | grep linux-image
 # 卸载指定的旧内核
-apt purge linux-image-*.**.*-**-cloud-amd64
+apt --purge remove linux-image-*.**.*-**-cloud-amd64
 
 安装Shadowsocks
 执行以下命令来安装Shadowsocks：
