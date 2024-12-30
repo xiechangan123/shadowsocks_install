@@ -58,16 +58,16 @@ net.ipv6.conf.eth0.disable_ipv6=1
 
 六、通过DD命令刷新openwrt固件
 
-使用winscp或其他方法将img镜像文件上传至路由器，例如/tmp/upload/路径下。
+使用winscp或其他方法将img镜像文件上传至路由器，例如/tmp路径下。
 
 确认img镜像文件已上传。
 
-root@OpenWrt:~# ls -l /tmp/upload
+ls -l /tmp
 
-以文件名为openwrt-x86-64-combined-squashfs.img为例。
+以文件名为openwrt-x86-64-generic-squashfs-combined-efi.img为例。
 
 执行DD命令写入
-　　dd if=/tmp/upload/openwrt-x86-64-combined-squashfs.img of=/dev/sda
+gunzip /tmp/openwrt-x86-64-generic-squashfs-combined-efi.img.gz && dd if=/tmp/openwrt-x86-64-generic-squashfs-combined-efi.img of=/dev/sda
   
 会回显一个写入信息
 　　594944+0 records in
@@ -107,15 +107,14 @@ apt install shadowsocks-libev
 nano /etc/shadowsocks-libev/config.json
 
 {
-"server":${server_value},
-    "server_port":${shadowsocksport},
-    "password":"${shadowsockspwd}",
-    "timeout":300,
-    "user":"nobody",
-    "method":"rc4-md5",
-    "fast_open":false,
-    "nameserver":"1.1.1.1",
-    "mode":"tcp_and_udp"
+    "server":["[::0]", "0.0.0.0"],
+    "server_port":5050,
+    "mode":"tcp_and_udp",
+    "local_address": "127.0.0.1",
+    "local_port":1080,
+    "password":"xca,./123",
+    "timeout":86400,
+    "method":"aes-256-gcm"
 }
 
 完成配置后，保存文件并退出。
@@ -123,7 +122,8 @@ nano /etc/shadowsocks-libev/config.json
 启动Shadowsocks
 执行以下命令来启动Shadowsocks服务：
 
-systemctl start shadowsocks-libev
+systemctl restart shadowsocks-libev
+systemctl status shadowsocks-libev
 
 如果一切顺利，Shadowsocks将会成功启动。
 
@@ -131,5 +131,8 @@ systemctl start shadowsocks-libev
 为了使Shadowsocks在系统启动时自动启动，我们需要执行以下命令：
 
 systemctl enable shadowsocks-libev
+
+卸载Shadowsocks
+apt autoremove shadowsocks-libev
 
 Copyright (C) 2014-2024 Xlovett
