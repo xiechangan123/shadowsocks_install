@@ -96,6 +96,10 @@ dpkg --list | grep linux-image
 # 卸载指定的旧内核
 apt --purge remove linux-image-*.**.*-**-cloud-amd64
 
+删除旧内核后，是时候更新“grub2”配置了：
+
+update-grub2
+
 安装Shadowsocks
 执行以下命令来安装Shadowsocks：
 
