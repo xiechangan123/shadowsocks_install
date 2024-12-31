@@ -140,4 +140,15 @@ systemctl enable shadowsocks-libev
 
 apt autoremove shadowsocks-libev
 
+
+
+在【替换引导卷】中点击页面下方的【高级选项】，点击【元数据】,在【名称】处输入user_data，【值】处输入新的 公钥 ，或是下面脚本的base64加密值（base64加密方法可在线搜索“在线base64加密”任选一个进行在线加密即可）
+
+#!/bin/bash
+echo root:你的密码 | chpasswd root
+sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config
+sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+rm -rf /etc/ssh/sshd_config.d/* && rm -rf /etc/ssh/ssh_config.d/*
+/etc/init.d/ssh* restart
+
 Copyright (C) 2014-2024 Xlovett
