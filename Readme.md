@@ -24,11 +24,11 @@ sysctl -p
 
 或者：
 
-echo "net.core.default_qdisc=fq_pie" >> /etc/sysctl.d/99-sysctl.conf
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.d/99-sysctl.conf
 
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.d/99-sysctl.conf
 
-sysctl -p
+sysctl -p /etc/sysctl.d/99-sysctl.conf
 
 
 状态检查：
@@ -136,11 +136,13 @@ nano /etc/shadowsocks-libev/config.json
 执行以下命令来启动Shadowsocks服务：
 
 systemctl restart shadowsocks-libev
+
 systemctl status shadowsocks-libev
 
 如果一切顺利，Shadowsocks将会成功启动。
 
 设置自启动
+
 为了使Shadowsocks在系统启动时自动启动，我们需要执行以下命令：
 
 systemctl enable shadowsocks-libev
