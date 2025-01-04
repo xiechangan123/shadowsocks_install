@@ -120,6 +120,7 @@ apt install shadowsocks-libev
 nano /etc/shadowsocks-libev/config.json
 
 {
+
     "server":["[::0]","0.0.0.0"],
     
     "mode":"tcp_and_udp",
