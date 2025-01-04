@@ -120,13 +120,18 @@ apt install shadowsocks-libev
 nano /etc/shadowsocks-libev/config.json
 
 {
-    "server":["[::0]", "0.0.0.0"],
-    "server_port":5050,
+    "server":["[::0]","0.0.0.0"],
+    
     "mode":"tcp_and_udp",
-    "local_address": "127.0.0.1",
-    "local_port":1080,
-    "password":"xca,./123",
-    "timeout":86400,
+    
+    "server_port":xxx,
+    
+    "local_port":xxx,
+    
+    "password":"xxx",
+    
+    "timeout":300,
+    
     "method":"aes-256-gcm"
 }
 
