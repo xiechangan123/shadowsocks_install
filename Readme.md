@@ -174,4 +174,45 @@ rm -rf /etc/ssh/sshd_config.d/* && rm -rf /etc/ssh/ssh_config.d/*
 /etc/init.d/ssh* restart
 
 
+
+
+
+
+Alpine Linux 搭建 sing-box
+
+加入OpenRC自启动
+chmod +x /etc/init.d/singbox
+rc-update add /etc/singbox default
+service /etc/singbox start
+
+编辑 /etc/singbox/config 配置文件
+{
+    "inbounds": [
+        {
+            "type": "hysteria2",
+            "listen": "::",
+            "listen_port": xxx,
+            "users": [
+  {
+    "password": "xxx",
+    "name": "xxx"
+  }
+],
+            "up_mbps":500,
+            "down_mbps":50,
+            "tls": {
+                "enabled": true,
+                "server_name":"xxx",
+                "alpn": [
+                    "h3"
+                ],
+                "certificate_path": "/etc/sing-box/tls/xxx.crt",
+                "key_path": "/etc/sing-box/tls/xxx.key"
+            }
+        }
+    ]
+}
+
+
+
 Copyright (C) 2014-2024 Xlovett
